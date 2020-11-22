@@ -32,7 +32,7 @@ Your data frame is a container for the data that you exported from your MySQL da
 
 ```{r - create the data frame}
 
-orig<- read.csv("~/RMarkdown/card_sort/db_wp.csv") #Load your CSV file here. Replace 'db_wp.csv' with your own filename.
+orig<- read.csv("~/db_wp.csv") #Load your CSV file here. Replace 'db_wp.csv' with your own filename.
 
 names(orig) # Find out the column names as we will use these to manipulate the data
 
