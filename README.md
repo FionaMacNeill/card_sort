@@ -7,7 +7,7 @@
 <hr>
 
 <h2>Pre-requisites:</h2> 
-This tutorial assumes that you already have R, RStudio and the dplyr package installed. All these are available free. To get R and RStudio installed follow the steps on this [page from RStudio](https://rstudio.com/products/rstudio/download/#download). You should also have an export of MySQL database table/s to hand in CSV format. If you need help with that more information is provided below.<br>
+This tutorial assumes that you already have R, RStudio and the dplyr package installed. All these are available free. To get R and RStudio installed follow the steps on this <a href="https://rstudio.com/products/rstudio/download/#download" target="_blank">page from RStudio</a>. You should also have an export of MySQL database table/s to hand in CSV format. If you need help with that more information is provided below.<br>
 
 **Read the tutorial here:** [../master/cardsort.md](../master/cardsort.md)<br>
 Estimated time (not including pre-requisites): 10mins
