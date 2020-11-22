@@ -45,20 +45,21 @@
 
 <code>pages &lt;- filter(orig, post_type==&quot;page&quot;, post_status==&quot;publish&quot;)</code>
 <p>I also want to check if there are any posts with empty titles or empty URLs. It is useful to use sum and the OR (|) operator to find out if there are any pages without titles or URLs (the &#39;guid&#39; column).</p>
-<code>pages %&gt;% summarise(count = sum(post_title==&quot;&quot; | guid==&quot;&quot;)) </code>
-<code><pre>##   count
+<code>pages %&gt;% summarise(count = sum(post_title==&quot;&quot; | guid==&quot;&quot;)) </code><br>
+<pre><code>##   count
 ## 1     0
-</pre></code>
-<br><br>
+</code></pre>
 If there are, you can use filter to remove these from the ‘pages’ data frame.<br>
-<code>pages &lt;- filter(pages, post_title !=&quot;&quot;)</code>
+<code>pages &lt;- filter(pages, post_title !=&quot;&quot;)</code><br>
 <code>pages &lt;- filter(pages, guid !=&quot;&quot;)</code><br>
-<p>At this point it may be useful to export some of your data frames so that you have them for reference purposes. Take out the ‘#’ at the beginning of the lines starting in ‘write…’ if you want to run this code.</p>
+<p>At this point it may be useful to export some of your data frames so that you have them for reference purposes. Take out the ‘#’ at the beginning of the lines starting in ‘write…’ if you want to run this code.</p><br>
 <code>#write.csv(pages, file = &quot;orig.csv&quot;)</code>
+
 <code>#Gives you the filtered data based on the original MySQL warts and all. 
   Could be useful for finding duplicate pages and posts, including dead links.</code>
-<br>
+
 <code>#write.csv(pages, file = &quot;pages.csv&quot;)</code>
+
 <code>#Gives you a list of only published pages and their URLs again this could be helpful for finding duplicate pages.</code>
 </div>
 <div id="a-super-clean-text-file-for-creating-my-card-for-sorting" class="section level2">
