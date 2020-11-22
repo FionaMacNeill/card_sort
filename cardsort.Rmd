@@ -96,12 +96,12 @@ In this example I used 'Proven By Users' <https://www.provenbyusers.com> for car
 
 ```{r - export your data to formats for the card sort}
 
-pages_cards <- distinct(pages, post_title) # This is a new data frame for the purposes of making cards for the sort only. The 'distinct' function removes any duplicates pages from the list.
+pages_cards <- distinct(pages, post_title) # This is a new data frame for the purposes of making cards for the sort only. The 'distinct' function removes any duplicate pages from the list.
 
-# If you are are asked to copy and paste in the data use this option. Check your home folder/directory on your computer if you cannot find the export.
+#If you are are asked to copy and paste in the data use this option. Check your home folder/directory on your computer if you cannot find the export.
 write.table(pages_cards, file = "pages_cards.txt", row.names=FALSE, sep="\t", quote = FALSE)
 
-# If you are asked to upload a csv of the data use this option. Beware of page titles featuring commas with this method!
+#If you are asked to upload a csv of the data use this option. Beware of page titles featuring commas with this method!
 write.csv(pages_cards, file = "pages.csv", row.names=FALSE, quote = FALSE)
 
 ```
