@@ -13,7 +13,8 @@ Check the preferences in RStudio to make sure that your default working director
 
 knitr::opts_chunk$set(echo = TRUE)
 
-install.packages("dplyr") # for extracting the data from the CSV file and filtering the data
+install.packages("dplyr") 
+#for extracting the data from the CSV file and filtering the data
 
 ```
 
@@ -21,7 +22,7 @@ Load the library for dplyr.
 
 ```{r - setting up our workspace}
 
-library("dplyr") # Load the dplyr library
+library("dplyr") #Load the dplyr library
 
 ```
 
@@ -34,7 +35,7 @@ Your data frame is a container for the data that you exported from your MySQL da
 
 orig<- read.csv("~/db_wp.csv") #Load your CSV file here. Replace 'db_wp.csv' with your own filename.
 
-names(orig) # Find out the column names as we will use these to manipulate the data
+names(orig) #Find out the column names as we will use these to manipulate the data
 
 ```
 ## 3. Create a data frame with only the interesting bits
@@ -44,7 +45,7 @@ You can use the inspection tools in the 'Environment' tab within RStudio to take
 ```{r - create a data frame for the bits you are interested in}
 
 orig <- select(orig, post_title, post_status, post_type, guid) 
-# We are using the 'select' function within dplyr to subset the columns.
+#We are using the 'select' function within dplyr to subset the columns.
 
 ```
 
@@ -56,7 +57,7 @@ In this example, I am only interested in blog pages that are published (as in pu
 
 ```{r - creating a new cleaned up data frame as a list of published pages}
 
-# My new data frame is called 'pages' as I would like to have an exportable list of pages with their URLs.
+#My new data frame is called 'pages' as I would like to have an exportable list of pages with their URLs.
 
 pages <- filter(orig, post_type=="page", post_status=="publish")
 
@@ -67,7 +68,7 @@ I also want to check if there are any posts with empty titles or empty URLs.
 ```{r - check if there are any rows with missing data}
 
 pages %>% summarise(count = sum(post_title=="" | guid=="")) 
-# It is useful to use sum and the OR (|) operator to find out if there are any pages without titles or URLs (the 'guid' column)
+#It is useful to use sum and the OR (|) operator to find out if there are any pages without titles or URLs (the 'guid' column)
 
 ```
 If there are, you can use filter to remove these from the 'pages' data frame.
@@ -96,7 +97,8 @@ In this example I used 'Proven By Users' <https://www.provenbyusers.com> for car
 
 ```{r - export your data to formats for the card sort}
 
-pages_cards <- distinct(pages, post_title) # This is a new data frame for the purposes of making cards for the sort only. The 'distinct' function removes any duplicate pages from the list.
+pages_cards <- distinct(pages, post_title) 
+#This is a new data frame for the purposes of making cards for the sort only. The 'distinct' function removes any duplicate pages from the list.
 
 #If you are are asked to copy and paste in the data use this option. Check your home folder/directory on your computer if you cannot find the export.
 write.table(pages_cards, file = "pages_cards.txt", row.names=FALSE, sep="\t", quote = FALSE)
