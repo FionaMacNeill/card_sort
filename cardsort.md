@@ -65,10 +65,10 @@ pages &lt;- filter(pages, guid !=&quot;&quot;)</code></pre>
 <p>In this example I used ‘Proven By Users’ <a href="https://www.provenbyusers.com" class="uri">https://www.provenbyusers.com</a> for card sorting. There are several other card sorting applications available and two export options are included in the next block to account for your needs. These export files will go to your home directory as the default if you have not changed this in the RStudio preferences.</p>
 <pre class="r"><code>pages_cards &lt;- distinct(pages, post_title) # This is a new data frame for the purposes of making cards for the sort only. The &#39;distinct&#39; function removes any duplicates pages from the list.
 
-# If you are are asked to copy and paste in the data use this option. Check your home folder/directory on your computer if you cannot find the export.
+#If you are are asked to copy and paste in the data use this option. Check your home folder/directory on your computer if you cannot find the export.
 write.table(pages_cards, file = &quot;pages_cards.txt&quot;, row.names=FALSE, sep=&quot;\t&quot;, quote = FALSE)
 
-# If you are asked to upload a csv of the data use this option. Beware of page titles featuring commas with this method!
+#If you are asked to upload a csv of the data use this option. Beware of page titles featuring commas with this method!
 write.csv(pages_cards, file = &quot;pages.csv&quot;, row.names=FALSE, quote = FALSE)</code></pre>
 </div>
 <div id="open-or-import-your-exported-file" class="section level2">
