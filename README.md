@@ -8,7 +8,7 @@
 
 **Read the tutorial here:** [../master/cardsort.md](../master/cardsort.md)
 
-**Download the R Markdown file to use with your own data here:** [../master/cardsort.Rmd](../master/cardsort.Rmd).**
+**Download the R Markdown file to use with your own data here:** [../master/cardsort.Rmd](../master/cardsort.Rmd)
 
 **Prior to using the tutorial: export your MySQL Data**
 
