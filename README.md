@@ -26,7 +26,7 @@ This tutorial is based on an export of MySQL database tables for a WordPress Blo
 
 [Click here](../master/mySQLexportSettings.png) to see a screenshot of the phpMyAdmin settings.
 
-**Next,** create a folder on your computer for your RStudio projects and subfolder for this particular project. Before you start working check in the preferences to make sure that RStudio is using your preferred home directory (screenshot from the Mac version of RStudio is included below for reference).
+**Next,** create a folder on your computer for your RStudio projects and subfolder for this particular project. Before you start working, check the RStudio > Preferences to make sure that the software is using your preferred home directory (screenshot from the Mac version of RStudio is included below for reference).
 
 <img src="../master/rstudioprefs.png" />
 
