@@ -52,9 +52,9 @@
 <pre><code>##   count
 ## 1     0
 </code></pre>
-<p>If there are, you can use filter to remove these from the ‘pages’ data frame. The result above indicates that there is one row of information and neither condition was met (0).</p><br>
+<p>If there are, you can use filter to remove these from the ‘pages’ data frame. The result above indicates that there is one row of information and neither condition was met (0).</p>
 <code>pages &lt;- filter(pages, post_title !=&quot;&quot;)</code><br>
-<code>pages &lt;- filter(pages, guid !=&quot;&quot;)</code><br>
+<code>pages &lt;- filter(pages, guid !=&quot;&quot;)</code><br><br>
 
 At this point it may be useful to export some of your data frames so that you have them for reference purposes. Take out the ‘#’ at the beginning of the lines starting in ‘write…’ if you want to run this code.
 
