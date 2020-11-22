@@ -7,47 +7,56 @@ output: html_document
 
 ## 1. Setup your workspace
 
-Check the preferences in RStudio to make sure that your default working directory is set to logical place on your computer. This is important as the final exported csv file will be saved there. In the code segment below we install the dplyr package <https://dplyr.tidyverse.org> - a free package that is part of Hadley Wickham's Tidyverse <https://www.tidyverse.org/>. This tutorial is based on an export of a MySQL export for WordPress blog <https://wordpress.org> however the same principles can be applied to most CMS platforms. This could be used for sorting out taxonmies of blog posts or pages. In this case it is being used for blog pages.
+Check the preferences in RStudio to make sure that your default working directory is set to a logical place on your computer. This is important as the final exported csv file will be saved there. In the code segment below we load the library for the dplyr package <https://dplyr.tidyverse.org> - a free package that is part of Hadley Wickham's Tidyverse <https://www.tidyverse.org/>. This tutorial is based on an export of MySQL database tables for a WordPress blog <https://wordpress.org>. However, the same principles can be applied to most CMS platforms. This could be used for sorting out taxonomies of blog posts or pages. In this example it is being used for blog pages.
 
-```{r setup, include=FALSE}
+```{r setup, eval=FALSE, include=FALSE}
+
 knitr::opts_chunk$set(echo = TRUE)
 
 install.packages("dplyr") # for extracting the data from the CSV file and filtering the data
+
+```
+
+Load the library for dplyr.
+
+```{r - setting up our workspace}
 
 library("dplyr") # Load the dplyr library
 
 ```
 
-## 2. Create your data.frame
 
-Your data frame is a container for the data that you exported from your MySQL database. We are bringing it into to RStudio so that we can clean it up with the dplyr package.
+## 2. Create your data frame
 
-```{r - create the dataframe}
+Your data frame is a container for the data that you exported from your MySQL database. We are bringing the MySQL data into RStudio so that we can clean it up with the dplyr package.
 
-orig<- read.csv("~/RMarkdown/card_sort/db_wp.csv") #Load your CSV file here. Replace 'myfile.csv' with your own filename.
+```{r - create the data frame}
+
+orig<- read.csv("~/RMarkdown/card_sort/db_wp.csv") #Load your CSV file here. Replace 'db_wp.csv' with your own filename.
 
 names(orig) # Find out the column names as we will use these to manipulate the data
 
 ```
-## 3. Create a data.frame only including the bits that you are interested
+## 3. Create a data frame with only the interesting bits
 
-You can use the inspection tools in the environment tab within RStudio to take a look at the data in each column. This will help you to figure out which columns you want. For instance, the unassuming 'guid' column contains the Page URL which is useful to filter for page inspection purposes.
+You can use the inspection tools in the 'Environment' tab within RStudio to take a look at the data in each column. This will help you to figure out which columns you want. For instance, the unassuming 'guid' column for a WordPress database contains the Page URL.
 
 ```{r - create a data frame for the bits you are interested in}
 
-orig <- select(orig, post_title, post_status, post_type, guid) # We are using the Select function within dplyr to subset the columns.
+orig <- select(orig, post_title, post_status, post_type, guid) 
+# We are using the 'select' function within dplyr to subset the columns.
 
 ```
 
-## 4. Cleaning up the data further
+## 4. Cleaning up the data a bit more
 
-So now we have four variables (columns) for our data set. This is a helpful view and we can export it later as a .csv (comma separated value; compatible with MS Excel or HTML editors) in its own right if needed. For our card sort we still have some clean-up to do.
+So now we have four variables (columns) for our data set. This is a helpful subset and we can export it later as a .csv (comma separated values; compatible with MS Excel or HTML editors) if needed. For our card sort we still have some clean-up to do.
 
-In this example, I am only interested in blog posts that are published (as in publicly visible), I don't want any posts that do no have titles and I do not want any pages which do not have URLs.
+In this example, I am only interested in blog pages that are published (as in publicly visible), I don't want any pages that do no have titles and I do not want any pages which do not have URLs.
 
-```{r - creating a new cleaned up data.frame as a list of published pages}
+```{r - creating a new cleaned up data frame as a list of published pages}
 
-# My new data.frame is called 'pages' as I would like to have an exportable list of pages with their URLs.
+# My new data frame is called 'pages' as I would like to have an exportable list of pages with their URLs.
 
 pages <- filter(orig, post_type=="page", post_status=="publish")
 
@@ -61,15 +70,18 @@ pages %>% summarise(count = sum(post_title=="" | guid==""))
 # It is useful to use sum and the OR (|) operator to find out if there are any pages without titles or URLs (the 'guid' column)
 
 ```
-If there are, you can use filter to remove these from the pages data.frame. We can always take a closer look at these in the 'orig' data.frame.
+If there are, you can use filter to remove these from the 'pages' data frame.
 
 ```{r - remove any entries with empty rows}
 
 pages <- filter(pages, post_title !="")
 pages <- filter(pages, guid !="")
 
-# At this point it may be useful to export some of your data.frames so that you have them for reference purposes. Take out the '#' at the beginning of each line if you want to run this code.
+```
 
+At this point it may be useful to export some of your data frames so that you have them for reference purposes. Take out the '#' at the beginning of the lines starting in 'write...' if you want to run this code.
+
+```{r - export your data frames}
 #write.csv(pages, file = "orig.csv") 
 #Gives you the filtered data based on the original MySQL warts and all. Could be useful for finding duplicate pages and posts, including dead links.
 
@@ -78,18 +90,18 @@ pages <- filter(pages, guid !="")
 
 ```
 
-## 5. A super clean text file for creating my card sort cards.
+## 5. A super clean text file for creating my card for sorting
 
-In the example I used 'Proven By Users' <https://www.provenbyusers.com>. There are several other card sorting applications available and two export options are included in the next block to account for your needs.
+In this example I used 'Proven By Users' <https://www.provenbyusers.com> for card sorting. There are several other card sorting applications available and two export options are included in the next block to account for your needs. These export files will go to your home directory as the default if you have not changed this in the RStudio preferences.
 
 ```{r - export your data to formats for the card sort}
 
-pages_cards <- distinct(pages, post_title) # This is a new data.frame for the purposes of making cards for the sort only. The 'distinct' function removes any duplicates pages from the list.
+pages_cards <- distinct(pages, post_title) # This is a new data frame for the purposes of making cards for the sort only. The 'distinct' function removes any duplicates pages from the list.
 
-# If you are are asked to copy and paste in the data use this option.
-write.table(pages_cards, file = "pages_cards.txt", row.names=FALSE, sep="\t", quote = FALSE) # This export file will go to your home directory as the default if you have not changed this in the RStudio preferences.
+# If you are are asked to copy and paste in the data use this option. Check your home folder/directory on your computer if you cannot find the export.
+write.table(pages_cards, file = "pages_cards.txt", row.names=FALSE, sep="\t", quote = FALSE)
 
-# If you are asked to upload a csv of the data use this option.
+# If you are asked to upload a csv of the data use this option. Beware of page titles featuring commas with this method!
 write.csv(pages_cards, file = "pages.csv", row.names=FALSE, quote = FALSE)
 
 ```
