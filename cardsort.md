@@ -7,7 +7,8 @@
 <h2>1. Setup your workspace</h2>
 <p>Check the preferences in RStudio to make sure that your default working directory is set to a logical place on your computer. This is important as the final exported csv file will be saved there. In the code segment below we load the library for the dplyr package <a href="https://dplyr.tidyverse.org" class="uri">https://dplyr.tidyverse.org</a> - a free package that is part of Hadley Wickham’s Tidyverse <a href="https://www.tidyverse.org/" class="uri">https://www.tidyverse.org/</a>. This tutorial is based on an export of MySQL database tables for a WordPress blog <a href="https://wordpress.org" class="uri">https://wordpress.org</a>. However, the same principles can be applied to most CMS platforms. This could be used for sorting out taxonomies of blog posts or pages. In this example it is being used for blog pages.</p>
 <p>Load the library for dplyr.</p>
-<pre class="r"><code>library(&quot;dplyr&quot;) # Load the dplyr library</code></pre>
+<pre class="r"><code>library(&quot;dplyr&quot;) 
+Load the dplyr library</code></pre>
 <pre><code>## 
 ## Attaching package: &#39;dplyr&#39;</code></pre>
 <pre><code>## The following objects are masked from &#39;package:stats&#39;:
@@ -20,9 +21,10 @@
 <div id="create-your-data-frame" class="section level2">
 <h2>2. Create your data frame</h2>
 <p>Your data frame is a container for the data that you exported from your MySQL database. We are bringing the MySQL data into RStudio so that we can clean it up with the dplyr package.</p>
-<pre class="r"><code>orig&lt;- read.csv(&quot;~/RMarkdown/card_sort/db_wp.csv&quot;) #Load your CSV file here. Replace &#39;db_wp.csv&#39; with your own filename.
+<pre class="r"><code>orig&lt;- read.csv(&quot;~/RMarkdown/card_sort/db_wp.csv&quot;) 
+#Load your CSV file here. Replace &#39;db_wp.csv&#39; with your own filename.</code>
 
-names(orig) # Find out the column names as we will use these to manipulate the data</code></pre>
+<pre class="r"><code>names(orig) #Find out the column names as we will use these to manipulate the data</code></pre>
 <pre><code>##  [1] &quot;ID&quot;                    &quot;post_author&quot;           &quot;post_date&quot;            
 ##  [4] &quot;post_date_gmt&quot;         &quot;post_content&quot;          &quot;post_title&quot;           
 ##  [7] &quot;post_excerpt&quot;          &quot;post_status&quot;           &quot;comment_status&quot;       
@@ -42,14 +44,13 @@ names(orig) # Find out the column names as we will use these to manipulate the d
 <h2>4. Cleaning up the data a bit more</h2>
 <p>So now we have four variables (columns) for our data set. This is a helpful subset and we can export it later as a .csv (comma separated values; compatible with MS Excel or HTML editors) if needed. For our card sort we still have some clean-up to do.</p>
 <p>In this example, I am only interested in blog pages that are published (as in publicly visible), I don’t want any pages that do no have titles and I do not want any pages which do not have URLs.</p>
-<pre class="r"><code># My new data frame is called &#39;pages&#39; as I would like to have an exportable list of pages with their URLs.
+<pre class="r"><code>#My new data frame is called &#39;pages&#39; as I would like to have an exportable list of pages with their URLs.
 
 pages &lt;- filter(orig, post_type==&quot;page&quot;, post_status==&quot;publish&quot;)</code></pre>
-<p>I also want to check if there are any posts with empty titles or empty URLs.</p>
+<p>I also want to check if there are any posts with empty titles or empty URLs. It is useful to use sum and the OR (|) operator to find out if there are any pages without titles or URLs (the &#39;guid&#39; column).</p>
 <pre class="r"><code>pages %&gt;% summarise(count = sum(post_title==&quot;&quot; | guid==&quot;&quot;)) </code></pre>
 <pre><code>##   count
 ## 1     0</code></pre>
-<pre class="r"><code># It is useful to use sum and the OR (|) operator to find out if there are any pages without titles or URLs (the &#39;guid&#39; column)</code></pre>
 <p>If there are, you can use filter to remove these from the ‘pages’ data frame.</p>
 <pre class="r"><code>pages &lt;- filter(pages, post_title !=&quot;&quot;)
 pages &lt;- filter(pages, guid !=&quot;&quot;)</code></pre>
