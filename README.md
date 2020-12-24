@@ -29,10 +29,10 @@ You will be shown a long string featuring letters and numbers and you want to co
 Add image here...
 
 On Windows:
-To check the MD5 checksum you need to install an application to do this - the interface-based option is [http://www.md5summer.org/](MD5Summer)
+To check the MD5 checksum you need to install an application to do this - the interface-based option is [MD5Summer](http://www.md5summer.org/)
 
 3. Once you have confirmed that the MD5 checksum matches, complete the installation of the R package/executable.
-4. Install RStudio from the [https://rstudio.com/products/rstudio/download/#download](RStudio.com site).
+4. Install RStudio from the [RStudio.com site](https://rstudio.com/products/rstudio/download/#download).
 4. Before completing installation check the SHA256 check sum. This follows the same principles as above.
 
 e.g. On a Mac:
@@ -48,8 +48,8 @@ Add image here...
 This tutorial has been created using an RMarkdown file. This is a type of file that includes both written descriptions and chunks of code. Each chunk of code can be run seperately and in sequence. This allows you to see how things work and test out incremental changes without re-running all of your code from the beginning. We recommend completing the entire tutorial within RStudio itself, by working through the RMarkdown file.
 
 The tutorial uses two free RStudio packages, we will take you through how to install these:
-* [https://dplyr.tidyverse.org/](Dplyr) - a package for data transformations. Helpful for filtering and taming wild and complex datasets.
-* [https://yihui.org/knitr/](Knitr) - a package for knitting together and processing the RMarkdown format of the tutorial file.
+* [Dplyr](https://dplyr.tidyverse.org/) - a package for data transformations. Helpful for filtering and taming wild and complex datasets.
+* [Knitr](https://yihui.org/knitr/) - a package for knitting together and processing the RMarkdown format of the tutorial file.
 
 'Packages' are essentially reusable units of R code and typically include a series of reuseable functions for specific statistical purposes [https://r-pkgs.org/index.html](Wickham and Bryan, 2019).
 
