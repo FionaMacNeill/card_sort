@@ -44,7 +44,14 @@ Add image here...
 
 <h1>Step 2: Getting started with R and RStudio</h1> 
 
-This tutorial has been created using an RMarkdown file. This is a type of file which includes written descriptions and chunks of code which can be run independently. We recommend completing the entire tutorial within RStudio itself, by working through the RMarkdown file.
+This tutorial has been created using an RMarkdown file. This is a type of file that includes written descriptions and chunks of code. Each chunk of code can be run seperately and in sequence. This allows you to see how things work systematically. We recommend completing the entire tutorial within RStudio itself, by working through the RMarkdown file.
+
+The tutorial uses two free RStudio packages, we will take you through how to install these:
+* Dplyr - a package for data transformations. Helpful for filtering and taming wild and complex datasets.
+* Knitr - a package for kniting together and processing the RMarkdown format of the tutorial file.
+
+'Packages' are essentially reusable units of R code and typically include a series of reuseable functions for specific statistical purposes [https://r-pkgs.org/index.html](Wickham and Bryan, 2019).
+
 
 **Download the R Markdown file to use with your own data here:** [../master/cardsort.Rmd](../master/cardsort.Rmd)
 
