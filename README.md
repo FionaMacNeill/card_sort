@@ -13,6 +13,7 @@ By the end of this tutorial you will have cleaned-up a MySQL export file listing
 
 Estimated time (not including work environment setup): 15mins
 
+<h1>First time using R and RStudio? Start here.</h1>
 <h1>Step 1: Setting up your work environment</h1> 
 
 To briefly explain the relationship between R and RStudio. R is a language and environment for statistical computing and graphics, RStudio is a user interface for R making it easier for us to write code, test it, debug it and then view outputs visually within one software application. The following steps, 1-6 only need to be completed when you use R and RStudio for the first time.
@@ -44,11 +45,11 @@ Add image here...
 
 <h1>Step 2: Getting started with R and RStudio</h1> 
 
-This tutorial has been created using an RMarkdown file. This is a type of file that includes written descriptions and chunks of code. Each chunk of code can be run seperately and in sequence. This allows you to see how things work systematically. We recommend completing the entire tutorial within RStudio itself, by working through the RMarkdown file.
+This tutorial has been created using an RMarkdown file. This is a type of file that includes both written descriptions and chunks of code. Each chunk of code can be run seperately and in sequence. This allows you to see how things work and test out incremental changes without re-running all of your code from the beginning. We recommend completing the entire tutorial within RStudio itself, by working through the RMarkdown file.
 
 The tutorial uses two free RStudio packages, we will take you through how to install these:
-* Dplyr - a package for data transformations. Helpful for filtering and taming wild and complex datasets.
-* Knitr - a package for kniting together and processing the RMarkdown format of the tutorial file.
+* [https://dplyr.tidyverse.org/](Dplyr) - a package for data transformations. Helpful for filtering and taming wild and complex datasets.
+* [https://yihui.org/knitr/](Knitr) - a package for knitting together and processing the RMarkdown format of the tutorial file.
 
 'Packages' are essentially reusable units of R code and typically include a series of reuseable functions for specific statistical purposes [https://r-pkgs.org/index.html](Wickham and Bryan, 2019).
 
