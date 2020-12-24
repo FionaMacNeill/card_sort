@@ -32,7 +32,7 @@ On Windows:
 To check the MD5 checksum you need to install an application to do this - the interface-based option is [http://www.md5summer.org/](MD5Summer)
 
 3. Once you have confirmed that the MD5 checksum matches, complete the installation of the R package/executable.
-4. Install RStudio from the [https://rstudio.com/products/rstudio/download/#download](RStudio.com site here).
+4. Install RStudio from the [https://rstudio.com/products/rstudio/download/#download](RStudio.com site).
 4. Before completing installation check the SHA256 check sum. This follows the same principles as above.
 
 e.g. On a Mac:
