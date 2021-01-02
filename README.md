@@ -1,4 +1,4 @@
-<h1>From MySQL to Card Sort - V2.0 (currently in the process of being edited)</h1>
+<h1>From MySQL to Card Sort - V2.0 (currently in the process of being updated)</h1>
 
 <p xmlns:dct="http://purl.org/dc/terms/" xmlns:cc="http://creativecommons.org/ns#" class="license-text"><a rel="cc:attributionURL" property="dct:title" href="https://github.com/FionaMacNeill/card_sort">From MySQL to Card Sort</a> by <a rel="cc:attributionURL dct:creator" property="cc:attributionName" href="https://github.com/FionaMacNeill">Fiona MacNeill</a> is licensed under <a rel="license" href="https://creativecommons.org/licenses/by-sa/4.0">CC BY-SA 4.0
 <br>
