@@ -57,7 +57,7 @@ The tutorial uses two free RStudio packages, we will take you through how to ins
 **Download the R Markdown file to use with your own data here:** [../master/cardsort.Rmd](../master/cardsort.Rmd)
 
 
-<h1>Add this to the MardDown file Check the Preferences in the RStudio software</h1>
+<h1>Add this to the MarkDown file Check the Preferences in the RStudio software</h1>
 
 **Next,** create a folder on your computer for your RStudio projects and subfolder for this particular project. Before you start working, check the RStudio > Preferences to make sure that the software is using your preferred home directory (screenshot from the Mac version of RStudio is included below for reference).
 
